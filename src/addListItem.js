@@ -3,14 +3,14 @@ export default function addListItem(input) {
     newEntry.className = "entry";
 
     const checkbox = document.createElement('input');
-    checkbox.setAttribute("type", "checkbox");
+    checkbox.type = "checkbox";
     checkbox.className = "check";
     newEntry.appendChild(checkbox);
 
-    const newItem = document.createElement('label');
-    newItem.innerHTML = input;
-    newEntry.appendChild(newItem);
-
+    const newLabel = document.createElement('label');
+    newLabel.innerHTML = input;
+    newLabel.setAttribute("for", checkbox);
+    newEntry.appendChild(newLabel);
 
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = "Delete";

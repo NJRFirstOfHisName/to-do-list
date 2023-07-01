@@ -13,10 +13,15 @@ addBtn.addEventListener('click', () => {
     }
 })
 
-const completeBtn = document.querySelectorAll('.complete');
-completeBtn.forEach((button) => {
-    button.addEventListener('click', () => {
-        completeItem();
+const checkbox = document.querySelectorAll('.check');
+checkbox.forEach((check) => {
+    check.addEventListener('change', () => {
+        const labelChange = check.nextSibling.nextSibling;
+        if(check.checked) {
+            labelChange.style.setProperty("text-decoration", "line-through");
+        } else {
+            labelChange.style.setProperty("text-decoration", "");
+        }
     })
 })
 
