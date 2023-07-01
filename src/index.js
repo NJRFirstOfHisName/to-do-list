@@ -3,6 +3,7 @@ import addListItem from "./addListItem";
 import { doc } from 'prettier';
 
 const tdList = document.getElementById('tdList');
+const completedList = document.getElementById('completedList');
 
 const addInput = document.getElementById('input');
 const addBtn = document.getElementById('addBtn');
@@ -19,8 +20,10 @@ checkbox.forEach((check) => {
         const labelChange = check.nextSibling.nextSibling;
         if(check.checked) {
             labelChange.style.setProperty("text-decoration", "line-through");
+            completedList.appendChild(check.parentNode);
         } else {
             labelChange.style.setProperty("text-decoration", "");
+            tdList.appendChild(check.parentNode);
         }
     })
 })
