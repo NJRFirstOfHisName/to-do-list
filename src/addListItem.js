@@ -1,15 +1,22 @@
 export default function addListItem(input) {
-    const tdList = document.getElementById('tdList');
+    const newEntry = document.createElement('div');
+    newEntry.className = "entry";
 
-    const newItem = document.createElement('li');
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.className = "check";
+    newEntry.appendChild(checkbox);
+
+    const newItem = document.createElement('label');
     newItem.innerHTML = input;
-    tdList.appendChild(newItem);
+    newEntry.appendChild(newItem);
 
-    const completeBtn = document.createElement('button');
-    completeBtn.innerHTML = "Complete";
-    tdList.appendChild(completeBtn);
 
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = "Delete";
-    tdList.appendChild(deleteBtn);
+    deleteBtn.className = "delete";
+    newEntry.appendChild(deleteBtn);
+
+    const tdList = document.getElementById('tdList');
+    tdList.appendChild(newEntry);
 }

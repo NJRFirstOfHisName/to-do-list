@@ -1,4 +1,4 @@
-#tdList {
-    display: grid;
-    grid-template-columns: 5fr 1fr 1fr;
+.entry {
+    display: flex;
+    margin: 5px;
 }
