@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head><script defer src="index.js"></script><script defer src="addListItem.js"></script></head>
+<html><head><script defer src="index.js"></script><script defer src="addListItem.js"></script><script defer src="deleteEntry.js"></script></head>
     <head>
         <meta charset="utf-8" />
         <title>To-Do List</title>
@@ -7,19 +7,21 @@
         <h1>To-do</h1>
         <input type="text" id="input" placeholder="new item">
         <button id="addBtn">Add</button>
-        <div id="tdList">
-            <div class="entry">
-                <input type="checkbox" class="check">
-                <label>test</label>
-                <button class="delete">Delete</button>
+        <div id="container">
+            <div id="tdList">
+                <div class="entry">
+                    <input type="checkbox" class="check">
+                    <label>test</label>
+                    <button class="delete">Delete</button>
+                </div>
             </div>
-        </div>
-        <h4>Completed</h4>
-        <div id="completedList">
-            <div class="entry">
-                <input type="checkbox" class="check">
-                <label>test2</label>
-                <button class="delete">Delete</button>
+            <h4>Completed</h4>
+            <div id="completedList">
+                <div class="entry">
+                    <input type="checkbox" class="check">
+                    <label>test2</label>
+                    <button class="delete">Delete</button>
+                </div>
             </div>
         </div>
     </body>

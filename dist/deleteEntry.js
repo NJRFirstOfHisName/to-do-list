@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/addListItem.js":
+/***/ "./src/deleteEntry.js":
 /*!****************************!*\
-  !*** ./src/addListItem.js ***!
+  !*** ./src/deleteEntry.js ***!
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ addListItem)\n/* harmony export */ });\nfunction addListItem(input) {\n  var newEntry = document.createElement('div');\n  newEntry.className = \"entry\";\n  var checkbox = document.createElement('input');\n  checkbox.type = \"checkbox\";\n  checkbox.className = \"check\";\n  newEntry.appendChild(checkbox);\n  var newLabel = document.createElement('label');\n  newLabel.innerHTML = input;\n  newEntry.appendChild(newLabel);\n  var deleteBtn = document.createElement('button');\n  deleteBtn.innerHTML = \"Delete\";\n  deleteBtn.className = \"delete\";\n  // deleteBtn.onclick = deleteEntry();\n  newEntry.appendChild(deleteBtn);\n  var tdList = document.getElementById('tdList');\n  tdList.appendChild(newEntry);\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/addListItem.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ deleteEntry)\n/* harmony export */ });\nfunction deleteEntry() {\n  this.parentNode.remove();\n}\n\n//# sourceURL=webpack://my-webpack-project/./src/deleteEntry.js?");
 
 /***/ })
 
@@ -60,7 +60,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/addListItem.js"](0, __webpack_exports__, __webpack_require__);
+/******/ 	__webpack_modules__["./src/deleteEntry.js"](0, __webpack_exports__, __webpack_require__);
 /******/ 	
 /******/ })()
 ;

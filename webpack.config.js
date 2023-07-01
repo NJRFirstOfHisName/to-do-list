@@ -14,6 +14,7 @@ const config = {
   entry: {
     index: './src/index.js',
     addListItem: './src/addListItem.js',
+    deleteEntry: './src/deleteEntry.js',
   },
   output: {
     path: path.resolve(__dirname, "dist"),

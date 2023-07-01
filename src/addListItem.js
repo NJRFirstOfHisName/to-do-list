@@ -9,12 +9,12 @@ export default function addListItem(input) {
 
     const newLabel = document.createElement('label');
     newLabel.innerHTML = input;
-    newLabel.setAttribute("for", checkbox);
     newEntry.appendChild(newLabel);
 
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = "Delete";
     deleteBtn.className = "delete";
+    // deleteBtn.onclick = deleteEntry();
     newEntry.appendChild(deleteBtn);
 
     const tdList = document.getElementById('tdList');
