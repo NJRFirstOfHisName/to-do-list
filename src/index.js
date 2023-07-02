@@ -1,19 +1,22 @@
 import './style.css';
-import addListItem from "./addListItem";
+import printListItem from "./printListItem";
 import deleteEntry from "./deleteEntry";
-import { doc } from 'prettier';
+import ListItem from "./addListItem";
 
 const container = document.getElementById('container');
 const tdList = document.getElementById('tdList');
 const completedList = document.getElementById('completedList');
 
-const addInput = document.getElementById('input');
+
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', () => {
-    if(addInput.value) {
-        const newEntry = addListItem(addInput.value);
-        addInput.value = "";
-
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const date = document.getElementById('dueDate').value;
+    const priority = document.getElementById('priority').checked;
+    if(title) {
+        // const newListItem = new ListItem(title, description, date, priority);
+        printListItem(title, description, date, priority);
     }
 })
 
@@ -30,29 +33,5 @@ container.addEventListener('click', (e) => {
             labelChange.style.setProperty("text-decoration", "");
             tdList.appendChild(e.target.parentNode);
         }
-        console.log(e.target)
-        console.log(e.target.nextElementSibling);
-        console.log(labelChange);
     }
 })
-
-// const checkbox = document.querySelectorAll('.check');
-// checkbox.forEach((check) => {
-//     check.addEventListener('change', () => {
-//         const labelChange = check.nextSibling.nextSibling;
-//         if(check.checked) {
-//             labelChange.style.setProperty("text-decoration", "line-through");
-//             completedList.appendChild(check.parentNode);
-//         } else {
-//             labelChange.style.setProperty("text-decoration", "");
-//             tdList.appendChild(check.parentNode);
-//         }
-//     })
-// })
-
-// const deleteBtn = document.querySelectorAll('.delete');
-// deleteBtn.forEach((button) => {
-//     button.addEventListener('click', () => {
-//         button.parentNode.remove();
-//     })
-// })

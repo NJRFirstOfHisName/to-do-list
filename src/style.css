@@ -1,4 +1,21 @@
+#inputFields {
+    display: grid;
+    grid-template-columns: 1fr 1fr .2fr .8fr .5fr;
+}
+
+#title {
+    grid-column: 1 / span 5;
+}
+
+#description {
+    grid-column: 1 / span 5;
+}
+
 .entry {
     display: flex;
     margin: 5px;
+}
+
+.priority {
+    color: red;
 }

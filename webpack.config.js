@@ -15,6 +15,7 @@ const config = {
     index: './src/index.js',
     addListItem: './src/addListItem.js',
     deleteEntry: './src/deleteEntry.js',
+    printListItem: './src/printListItem.js',
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -31,6 +32,7 @@ const config = {
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {

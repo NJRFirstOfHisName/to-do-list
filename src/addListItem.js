@@ -1,22 +1,29 @@
-export default function addListItem(input) {
-    const newEntry = document.createElement('div');
-    newEntry.className = "entry";
+class ListItem {
+    constructor(title, description = " ", dueDate, priority) {
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = priority;
+    }
 
-    const checkbox = document.createElement('input');
-    checkbox.type = "checkbox";
-    checkbox.className = "check";
-    newEntry.appendChild(checkbox);
-
-    const newLabel = document.createElement('label');
-    newLabel.innerHTML = input;
-    newEntry.appendChild(newLabel);
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = "Delete";
-    deleteBtn.className = "delete";
-    // deleteBtn.onclick = deleteEntry();
-    newEntry.appendChild(deleteBtn);
-
-    const tdList = document.getElementById('tdList');
-    tdList.appendChild(newEntry);
+    // timeLeft() {
+    //     if(dueDate) {
+    //         now = new Date();
+    //         return (now.getTime() - this.dueDate.getTime())/36000;
+    //     }
+    // }
+    get title() {
+        return this._title;
+    }
+    get description() {
+        return this._description;
+    }
+    get dueDate() {
+        return this._dueDate;
+    }
+    get priority() {
+        return this._priority;
+    }
 }
+
+export default { ListItem }

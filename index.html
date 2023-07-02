@@ -5,8 +5,15 @@
         <title>To-Do List</title>
     <body>
         <h1>To-do</h1>
-        <input type="text" id="input" placeholder="new item">
-        <button id="addBtn">Add</button>
+        <div id="inputFields">
+            <input type="text" id="title" placeholder="Title">
+            <textarea id="description" placeholder="Description"></textarea>
+            <input type="date" name="dueDate" id="dueDate">
+            <label for="dueDate">Date due (optional)</label>
+            <input type="checkbox" name="priority" id="priority">
+            <label for="priority">Priority?</label>
+            <button id="addBtn">Add</button>
+        </div>
         <div id="container">
             <div id="tdList">
                 <div class="entry">
