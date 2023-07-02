@@ -7,6 +7,11 @@ const container = document.getElementById('container');
 const tdList = document.getElementById('tdList');
 const completedList = document.getElementById('completedList');
 
+const testItem = new ListItem("Test Item","This is a test item for testing","07-02-2023",true);
+
+const fullList = [
+    testItem
+]
 
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', () => {
@@ -15,8 +20,9 @@ addBtn.addEventListener('click', () => {
     const date = document.getElementById('dueDate').value;
     const priority = document.getElementById('priority').checked;
     if(title) {
-        // const newListItem = new ListItem(title, description, date, priority);
-        printListItem(title, description, date, priority);
+        const newListItem = new ListItem(title, description, date, priority);
+        console.log(newListItem)
+        printListItem(newListItem);
     }
 })
 

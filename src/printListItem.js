@@ -1,4 +1,4 @@
-export default function printListItem(title, description, date, priority) {
+export default function printListItem(ListItem) {
     const newEntry = document.createElement('div');
     newEntry.className = "entry";
 
@@ -8,18 +8,18 @@ export default function printListItem(title, description, date, priority) {
     newEntry.appendChild(checkbox);
 
     const newLabel = document.createElement('label');
-    newLabel.innerHTML = title;
-    if(priority){
+    newLabel.innerHTML = ListItem.getTitle;
+    if(ListItem.getPriority){
         newLabel.className = "priority";
     }
     newEntry.appendChild(newLabel);
 
     const descriptionText = document.createElement('p');
-    descriptionText.innerHTML = description;
+    descriptionText.innerHTML = ListItem.getDescription;
     newEntry.appendChild(descriptionText);
 
     const dueDate = document.createElement('p');
-    dueDate.innerHTML = date;
+    dueDate.innerHTML = ListItem.getDueDate;
     newEntry.appendChild(dueDate);
 
     const deleteBtn = document.createElement('button');
