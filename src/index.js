@@ -1,6 +1,5 @@
 import './style.css';
 import printListItem from "./printListItem";
-import deleteEntry from "./deleteEntry";
 import ListItem from "./addListItem";
 
 // Dom elements used for and in event listeners
@@ -18,7 +17,7 @@ const project = document.getElementById('projects');
     defaultCompleted.completed = true;
     testCompleted.completed = true;
 
-    const fullList = [defaultList, testList, defaultCompleted, testCompleted];
+    let fullList = [defaultList, testList, defaultCompleted, testCompleted];
 
 //Prints contents of default project on page load
 fullList.forEach(ListItem => {
@@ -49,25 +48,26 @@ addBtn.addEventListener('click', () => {
         const newListItem = new ListItem(title, description, date, priority, project.value);
         printListItem(newListItem);
         fullList.push(newListItem);
-        console.log(fullList);
     }
 })
 
 //Listens for any clicks within the tasks container.
 container.addEventListener('click', (e) => {
+    const f = e.target.parentNode;
     //If delete button is clicked, deletes task.
     if(e.target.classList.contains('delete')) {
-        e.target.parentNode.remove();
+        fullList = fullList.filter(task => task.getTaskID != f.id);
+        f.remove();
     }
     //If checkbox is clicked, moves task from 'tasks' to 'completed' or vice-versa
     if(e.target.classList.contains('check')) {
         const labelChange = e.target.nextElementSibling;
         if(e.target.checked) {
             labelChange.style.setProperty("text-decoration", "line-through");
-            completedList.appendChild(e.target.parentNode);
+            completedList.appendChild(f);
         } else {
             labelChange.style.setProperty("text-decoration", "");
-            tdList.appendChild(e.target.parentNode);
+            tdList.appendChild(f);
         }
     }
 })

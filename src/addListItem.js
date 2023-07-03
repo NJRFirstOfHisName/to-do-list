@@ -6,14 +6,10 @@ export default class ListItem {
         this.priority = priority;
         this.project = project;
         this.completed = false;
+        this.taskID = "id" + Math.random().toString(16).slice(2);
     }
 
-    // timeLeft() {
-    //     if(dueDate) {
-    //         now = new Date();
-    //         return (now.getTime() - this.dueDate.getTime())/36000;
-    //     }
-    // }
+
     get getTitle() {
         return this._title;
     }
@@ -31,6 +27,9 @@ export default class ListItem {
     }
     get getProject() {
         return this._project;
+    }
+    get getTaskID() {
+        return this.taskID
     }
 
     set title(title) {
@@ -51,6 +50,13 @@ export default class ListItem {
     set project(project) {
         this._project = project;
     }
+    
+    // timeLeft() {
+    //     if(dueDate) {
+    //         now = new Date();
+    //         return (now.getTime() - this.dueDate.getTime())/36000;
+    //     }
+    // }
 }
 
 // export default { ListItem }

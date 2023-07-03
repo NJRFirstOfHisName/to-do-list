@@ -14,7 +14,6 @@ const config = {
   entry: {
     index: './src/index.js',
     addListItem: './src/addListItem.js',
-    deleteEntry: './src/deleteEntry.js',
     printListItem: './src/printListItem.js',
   },
   output: {

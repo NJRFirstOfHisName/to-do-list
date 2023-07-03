@@ -1,6 +1,9 @@
 export default function printListItem(ListItem) {
+
+    //Encloses all tasks in a div with a unique id and shared class
     const newEntry = document.createElement('div');
     newEntry.className = "entry";
+    newEntry.id = ListItem.getTaskID;
 
     //Create checkbox for marking tasks as complete (or un-marking)
     const checkbox = document.createElement('input');
