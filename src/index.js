@@ -9,9 +9,14 @@ const completedList = document.getElementById('completedList');
 const project = document.getElementById('projects');
 
 const defaultList = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
-const testList = new ListItem("Test Item","This is a test item for testing","09-11-2050",true, "testProject")
+const defaultCompleted = new ListItem("Default completed Item","This is a completed default item for completed defaulting","01-012-2001",true, "defaultProject");
+const testList = new ListItem("Test Item","This is a test item for testing","09-11-2050", false, "testProject");
+const testCompleted = new ListItem("Test completed Item","This is a completed test item for completed testing","11-11-1111", true, "testProject")
 
-const fullList = [defaultList, testList]
+defaultCompleted.completed = true;
+testCompleted.completed = true;
+
+const fullList = [defaultList, testList, defaultCompleted, testCompleted];
 
 fullList.forEach(ListItem => {
     if(ListItem.getProject === project.value){

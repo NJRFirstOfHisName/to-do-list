@@ -27,6 +27,13 @@ export default function printListItem(ListItem) {
     deleteBtn.className = "delete";
     newEntry.appendChild(deleteBtn);
 
-    const tdList = document.getElementById('tdList');
-    tdList.appendChild(newEntry);
+    if(!ListItem.getCompleted){
+        console.log(ListItem.getCompleted)
+
+        const tdList = document.getElementById('tdList');
+        tdList.appendChild(newEntry);
+    } else {
+        const completedList = document.getElementById('completedList');
+        completedList.appendChild(newEntry);
+    }
 }
