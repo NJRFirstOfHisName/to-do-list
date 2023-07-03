@@ -9,6 +9,7 @@ export default function printListItem(ListItem) {
     const checkbox = document.createElement('input');
     checkbox.type = "checkbox";
     checkbox.className = "check";
+    checkbox.checked = ListItem.getCompleted;
     newEntry.appendChild(checkbox);
 
     //Create label with the task's title and highlights it if it's a priority
