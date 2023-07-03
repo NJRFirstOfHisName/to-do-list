@@ -1,19 +1,67 @@
+body {
+    background-color: rgb(247, 236, 221);
+}
+
 #inputForm {
     display: grid;
     grid-template-columns: 1fr 1fr .2fr .8fr .5fr;
 }
 
-#title {
+#titleForm {
     grid-column: 1 / span 5;
 }
 
-#description {
+#descriptionForm {
     grid-column: 1 / span 5;
+}
+
+#container div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px
+}
+
+#container div div{
+    grid-template-columns: .25fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "check title title dueDate"
+        "description description description description"
+        ". . . delete";
+    border-radius: 20px;
+    margin: 5px;
+    padding: 10px;
+    gap: 0;
+    background-color: rgb(224, 240, 242);
 }
 
 .entry {
-    display: flex;
-    margin: 5px;
+    border: 1px solid black
+}
+
+.check {
+    grid-area: check;
+    width: 15px;
+}
+
+.title {
+    grid-area: title;
+    align-self: center;
+    justify-self: start;
+}
+
+.dueDate {
+    grid-area: dueDate;
+}
+
+.description {
+    grid-area: description;
+}
+
+.delete {
+    grid-area: delete;
+    background-color: aqua;
+    border-color: aquamarine;
+    border-radius: 5px;
 }
 
 .priority {

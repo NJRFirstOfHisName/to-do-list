@@ -13,15 +13,7 @@
             </select>
             <button type="button" id="newProject">New Project</button>
         </form>
-        <form id="inputForm">
-            <input type="text" id="title" placeholder="Title">
-            <textarea id="description" placeholder="Description"></textarea>
-            <input type="date" name="dueDate" id="dueDate">
-            <label for="dueDate">Date due (optional)</label>
-            <input type="checkbox" name="priority" id="priority">
-            <label for="priority">Priority?</label>
-            <button type="button" id="addBtn">Add</button>
-        </form>
+
         <div id="container">
             <h4>Tasks</h4>
             <div id="tdList">
@@ -30,6 +22,15 @@
             <div id="completedList">
             </div>
         </div>
+            <form id="inputForm">
+            <input type="text" id="titleForm" placeholder="Title">
+            <textarea id="descriptionForm" placeholder="Description"></textarea>
+            <input type="date" name="dueDate" id="dueDate">
+            <label for="dueDate">Date due (optional)</label>
+            <input type="checkbox" name="priority" id="priority">
+            <label for="priority">Priority?</label>
+            <button type="button" id="addBtn">Add</button>
+        </form>
     </body>
     
 </html>

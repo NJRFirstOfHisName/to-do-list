@@ -11,6 +11,9 @@ const project = document.getElementById('projects');
 
 //Hard-coded entries to simplify testing, will be deleted once project is finished
     const defaultList = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
+    const defaultList2 = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
+    const defaultList3 = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
+    const defaultList4 = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
     const defaultCompleted = new ListItem("Default completed Item","This is a completed default item for completed defaulting","01-012-2001",true, "defaultProject");
     const testList = new ListItem("Test Item","This is a test item for testing","09-11-2050", false, "testProject");
     const testCompleted = new ListItem("Test completed Item","This is a completed test item for completed testing","11-11-1111", true, "testProject")
@@ -18,7 +21,7 @@ const project = document.getElementById('projects');
     defaultCompleted.completed = true;
     testCompleted.completed = true;
 
-    let fullList = [defaultList, testList, defaultCompleted, testCompleted];
+    let fullList = [defaultList, testList, defaultCompleted, testCompleted, defaultList2, defaultList3, defaultList4];
 
 //Prints contents of default project on page load
 fullList.forEach(ListItem => {
@@ -47,10 +50,10 @@ newProjectBtn.addEventListener('click', () => {
 //Creates a new, uncompleted task when 'Add' button is pressed IF title is present
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', () => {
-    if(document.getElementById('title').value) {
+    if(document.getElementById('titleForm').value) {
         const newListItem = new ListItem(
-            document.getElementById('title').value,
-            document.getElementById('description').value,
+            document.getElementById('titleForm').value,
+            document.getElementById('descriptionForm').value,
             document.getElementById('dueDate').value,
             document.getElementById('priority').checked,
             project.value);
@@ -67,7 +70,7 @@ container.addEventListener('click', (element) => {
         fullList = fullList.filter(task => task.getTaskID != parent.id);
         parent.remove();
     }
-    //If checkbox is clicked, moves task from 'tasks' to 'completed' or vice-versa
+    //If checkbox is clicked, toggles 'completed' and moves task from 'tasks' to 'completed' or vice-versa
     if(element.target.classList.contains('check')) {
         let toggleIndex = fullList.map(e => e.getTaskID).indexOf(parent.id);
         fullList[toggleIndex].completed = !fullList[toggleIndex].getCompleted;

@@ -15,19 +15,22 @@ export default function printListItem(ListItem) {
     //Create label with the task's title and highlights it if it's a priority
     const newLabel = document.createElement('label');
     newLabel.innerHTML = ListItem.getTitle;
+    newLabel.className = "title";
     if(ListItem.getPriority){
-        newLabel.className = "priority";
+        newLabel.className += " priority";
     }
     newEntry.appendChild(newLabel);
 
     //Add description. If no description is supplied field will be blank
     const descriptionText = document.createElement('p');
+    descriptionText.className = "description";
     descriptionText.innerHTML = ListItem.getDescription;
     newEntry.appendChild(descriptionText);
 
     //Add due date. If no date is supplied field will be blank
     const dueDate = document.createElement('p');
     dueDate.innerHTML = ListItem.getDueDate;
+    dueDate.className = "dueDate";
     newEntry.appendChild(dueDate);
 
     //Add button to delete task
