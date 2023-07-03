@@ -9,7 +9,6 @@ export default class ListItem {
         this.taskID = "id" + Math.random().toString(16).slice(2);
     }
 
-
     get getTitle() {
         return this._title;
     }

@@ -38,6 +38,7 @@ export default function printListItem(ListItem) {
 
     //Adds task to appropriate div depending on whether it's marked complete
     if(!ListItem.getCompleted){
+        newLabel.style.setProperty("text-decoration", "");
         tdList.appendChild(newEntry);
     } else {
         newLabel.style.setProperty("text-decoration", "line-through");

@@ -39,8 +39,8 @@ project.addEventListener('change', () => {
 })
 
 //Creates new project when 'New Project' button is pressed
-// const newProjectBtn = document.getElementById('newProject');
-document.getElementById('newProject').addEventListener('click', () => {
+const newProjectBtn = document.getElementById('newProject');
+newProjectBtn.addEventListener('click', () => {
     addProject(project);
 })
 
@@ -60,22 +60,18 @@ addBtn.addEventListener('click', () => {
 })
 
 //Listens for any clicks within the tasks container.
-container.addEventListener('click', (e) => {
-    const f = e.target.parentNode;
+container.addEventListener('click', (element) => {
+    const parent = element.target.parentNode;
     //If delete button is clicked, deletes task.
-    if(e.target.classList.contains('delete')) {
-        fullList = fullList.filter(task => task.getTaskID != f.id);
-        f.remove();
+    if(element.target.classList.contains('delete')) {
+        fullList = fullList.filter(task => task.getTaskID != parent.id);
+        parent.remove();
     }
     //If checkbox is clicked, moves task from 'tasks' to 'completed' or vice-versa
-    if(e.target.classList.contains('check')) {
-        const labelChange = e.target.nextElementSibling;
-        if(e.target.checked) {
-            labelChange.style.setProperty("text-decoration", "line-through");
-            completedList.appendChild(f);
-        } else {
-            labelChange.style.setProperty("text-decoration", "");
-            tdList.appendChild(f);
-        }
+    if(element.target.classList.contains('check')) {
+        let toggleIndex = fullList.map(e => e.getTaskID).indexOf(parent.id);
+        fullList[toggleIndex].completed = !fullList[toggleIndex].getCompleted;
+        printListItem(fullList[toggleIndex])
+        parent.remove();
     }
 })
