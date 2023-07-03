@@ -40,6 +40,7 @@ export default function printListItem(ListItem) {
         const tdList = document.getElementById('tdList');
         tdList.appendChild(newEntry);
     } else {
+        newLabel.style.setProperty("text-decoration", "line-through");
         const completedList = document.getElementById('completedList');
         completedList.appendChild(newEntry);
     }
