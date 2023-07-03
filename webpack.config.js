@@ -15,6 +15,7 @@ const config = {
     index: './src/index.js',
     addListItem: './src/addListItem.js',
     printListItem: './src/printListItem.js',
+    addProject: './src/addProject.js',
   },
   output: {
     path: path.resolve(__dirname, "dist"),

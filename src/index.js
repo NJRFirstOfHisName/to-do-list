@@ -1,6 +1,7 @@
 import './style.css';
 import printListItem from "./printListItem";
 import ListItem from "./addListItem";
+import addProject from './addProject';
 
 // Dom elements used for and in event listeners
 const container = document.getElementById('container');
@@ -40,21 +41,7 @@ project.addEventListener('change', () => {
 //Creates new project when 'New Project' button is pressed
 const newProjectBtn = document.getElementById('newProject');
 newProjectBtn.addEventListener('click', () => {
-    //First prompts the user for the new project name and checks that it's not the same as an existing project
-    let newProjectName = prompt("Enter the name of your new project:") + "Project";
-    for(let i=0 ; i<project.options.length ; i++) {
-        let existingProject = project.options[i].value.toLowerCase();
-        if (newProjectName.toLowerCase() === existingProject) {
-            alert("A project already exists with that name. Please select a unique project name.");
-            newProjectName = "";
-        }
-    }
-    if(newProjectName) {
-        let newProject = document.createElement('option');
-        newProject.value = newProjectName;
-        newProject.text = newProjectName.slice(0, -7);
-        project.add(newProject);
-    }
+    addProject(project);
 })
 
 //Creates a new, uncompleted task when 'Add' button is pressed IF title is present
