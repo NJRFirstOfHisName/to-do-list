@@ -46,9 +46,10 @@ addBtn.addEventListener('click', () => {
         const description = document.getElementById('description').value;
         const date = document.getElementById('dueDate').value;
         const priority = document.getElementById('priority').checked;
-        const newListItem = new ListItem(title, description, date, priority, project);
+        const newListItem = new ListItem(title, description, date, priority, project.value);
         printListItem(newListItem);
-        defaultProject.push(newListItem);
+        fullList.push(newListItem);
+        console.log(fullList);
     }
 })
 

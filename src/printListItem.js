@@ -34,7 +34,6 @@ export default function printListItem(ListItem) {
 
     //Adds task to appropriate div depending on whether it's marked complete
     if(!ListItem.getCompleted){
-        console.log(ListItem.getCompleted)
         const tdList = document.getElementById('tdList');
         tdList.appendChild(newEntry);
     } else {
