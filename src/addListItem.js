@@ -1,9 +1,11 @@
 export default class ListItem {
-    constructor(title, description = " ", dueDate, priority) {
+    constructor(title, description = " ", dueDate, priority, project) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.project = project;
+        this.completed = false;
     }
 
     // timeLeft() {
@@ -24,6 +26,12 @@ export default class ListItem {
     get getPriority() {
         return this._priority;
     }
+    get getCompleted() {
+        return this._completed;
+    }
+    get getProject() {
+        return this._project;
+    }
 
     set title(title) {
         this._title = title;
@@ -36,6 +44,12 @@ export default class ListItem {
     }
     set priority(priority) {
         this._priority = priority;
+    }
+    set completed(completed) {
+        this._completed = completed;
+    }
+    set project(project) {
+        this._project = project;
     }
 }
 

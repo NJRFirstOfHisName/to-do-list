@@ -1,4 +1,4 @@
-#inputFields {
+#inputForm {
     display: grid;
     grid-template-columns: 1fr 1fr .2fr .8fr .5fr;
 }

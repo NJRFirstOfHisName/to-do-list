@@ -5,30 +5,38 @@
         <title>To-Do List</title>
     <body>
         <h1>To-do</h1>
-        <div id="inputFields">
+        <form id="projectForm">
+            <label for="projects">Choose your project:</label>
+            <select name="projects" id="projects">
+                <option value="defaultProject">default</option>
+                <option value="testProject">Test</option>
+            </select>
+            <button type="button" id="newProject">New Project</button>
+        </form>
+        <form id="inputForm">
             <input type="text" id="title" placeholder="Title">
             <textarea id="description" placeholder="Description"></textarea>
             <input type="date" name="dueDate" id="dueDate">
             <label for="dueDate">Date due (optional)</label>
             <input type="checkbox" name="priority" id="priority">
             <label for="priority">Priority?</label>
-            <button id="addBtn">Add</button>
-        </div>
+            <button type="button" id="addBtn">Add</button>
+        </form>
         <div id="container">
             <div id="tdList">
-                <div class="entry">
+                <!-- <div class="entry">
                     <input type="checkbox" class="check">
                     <label>test</label>
                     <button class="delete">Delete</button>
-                </div>
+                </div> -->
             </div>
             <h4>Completed</h4>
             <div id="completedList">
-                <div class="entry">
+                <!-- <div class="entry">
                     <input type="checkbox" class="check">
                     <label>test2</label>
                     <button class="delete">Delete</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>

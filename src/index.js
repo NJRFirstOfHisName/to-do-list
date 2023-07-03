@@ -6,23 +6,39 @@ import ListItem from "./addListItem";
 const container = document.getElementById('container');
 const tdList = document.getElementById('tdList');
 const completedList = document.getElementById('completedList');
+const project = document.getElementById('projects');
 
-const testItem = new ListItem("Test Item","This is a test item for testing","07-02-2023",true);
+const defaultList = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
+const testList = new ListItem("Test Item","This is a test item for testing","09-11-2050",true, "testProject")
 
-const fullList = [
-    testItem
-]
+const fullList = [defaultList, testList]
+
+fullList.forEach(ListItem => {
+    if(ListItem.getProject === project.value){
+        printListItem(ListItem);
+    }
+})
+
+project.addEventListener('change', () => {
+    tdList.innerHTML = "";
+    completedList.innerHTML = "";
+    fullList.forEach(ListItem => {
+        if(ListItem.getProject === project.value){
+            printListItem(ListItem);
+        }
+    })
+})
 
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', () => {
     const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const date = document.getElementById('dueDate').value;
-    const priority = document.getElementById('priority').checked;
     if(title) {
-        const newListItem = new ListItem(title, description, date, priority);
-        console.log(newListItem)
+        const description = document.getElementById('description').value;
+        const date = document.getElementById('dueDate').value;
+        const priority = document.getElementById('priority').checked;
+        const newListItem = new ListItem(title, description, date, priority, project);
         printListItem(newListItem);
+        defaultProject.push(newListItem);
     }
 })
 
