@@ -39,20 +39,21 @@ project.addEventListener('change', () => {
 })
 
 //Creates new project when 'New Project' button is pressed
-const newProjectBtn = document.getElementById('newProject');
-newProjectBtn.addEventListener('click', () => {
+// const newProjectBtn = document.getElementById('newProject');
+document.getElementById('newProject').addEventListener('click', () => {
     addProject(project);
 })
 
 //Creates a new, uncompleted task when 'Add' button is pressed IF title is present
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', () => {
-    const title = document.getElementById('title').value;
-    if(title) {
-        const description = document.getElementById('description').value;
-        const date = document.getElementById('dueDate').value;
-        const priority = document.getElementById('priority').checked;
-        const newListItem = new ListItem(title, description, date, priority, project.value);
+    if(document.getElementById('title').value) {
+        const newListItem = new ListItem(
+            document.getElementById('title').value,
+            document.getElementById('description').value,
+            document.getElementById('dueDate').value,
+            document.getElementById('priority').checked,
+            project.value);
         printListItem(newListItem);
         fullList.push(newListItem);
     }
