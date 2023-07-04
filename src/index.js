@@ -2,6 +2,7 @@ import './style.css';
 import printListItem from "./printListItem";
 import ListItem from "./addListItem";
 import addProject from './addProject';
+import { doc } from 'prettier';
 
 // Dom elements used for and in event listeners
 const container = document.getElementById('container');
@@ -41,15 +42,19 @@ project.addEventListener('change', () => {
     })
 })
 
+document.getElementById('projectFormButton').addEventListener('click', () => {
+    const projectAdd = document.getElementById('projectAdd');
+    projectAdd.classList.toggle('expanded');
+    projectAdd.classList.toggle('collapsed');
+})
+
 //Creates new project when 'New Project' button is pressed
-const newProjectBtn = document.getElementById('newProject');
-newProjectBtn.addEventListener('click', () => {
+document.getElementById('newProject').addEventListener('click', () => {
     addProject(project);
 })
 
 //Creates a new, uncompleted task when 'Add' button is pressed IF title is present
-const addBtn = document.getElementById('addBtn');
-addBtn.addEventListener('click', () => {
+document.getElementById('addBtn').addEventListener('click', () => {
     if(document.getElementById('titleInput').value) {
         const newListItem = new ListItem(
             document.getElementById('titleInput').value,
@@ -77,4 +82,11 @@ container.addEventListener('click', (element) => {
         printListItem(fullList[toggleIndex])
         parent.remove();
     }
+})
+
+//Expands or collapses form for adding a new task when button is pressed
+document.getElementById('inputFormButton').addEventListener('click', () => {
+    const inputForm = document.getElementById('inputForm');
+    inputForm.classList.toggle('expanded');
+    inputForm.classList.toggle('collapsed');
 })
