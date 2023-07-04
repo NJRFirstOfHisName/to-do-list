@@ -2,17 +2,33 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <title>To-Do List</title>
     <body>
-        <h1>To-do</h1>
-        <form id="projectForm">
-            <label for="projects">Choose your project:</label>
-            <select name="projects" id="projects">
-                <option value="defaultProject">default</option>
-                <option value="testProject">Test</option>
-            </select>
-            <button type="button" id="newProject">New Project</button>
-        </form>
+        <div id="sidebar">
+            <h1>To-do</h1>
+            <form id="projectForm">
+                <label for="projects" id="projectsLabel">Choose your project:</label>
+                <select name="projects" id="projects">
+                    <option value="defaultProject">default</option>
+                    <option value="testProject">Test</option>
+                </select>
+                <button type="button" id="newProject">New Project</button>
+            </form>
+            <form id="inputForm">
+                <input type="text" id="titleInput" placeholder="Title">
+                <textarea id="descriptionForm" placeholder="Description" rows="5"></textarea>
+                <input type="date" name="dueDate" id="dueDate">
+                <label for="dueDate" id="dueDateLabel">Date due (optional)</label>
+                <div id="priorityDiv">
+                    <input type="checkbox" name="priority" id="priority">
+                    <label for="priority" id="priorityLabel">Priority?</label>
+                </div>
+                <button type="button" id="addBtn">Add</button>
+            </form>
+        </div id="sidebar">
 
         <div id="container">
             <h4>Tasks</h4>
@@ -22,15 +38,7 @@
             <div id="completedList">
             </div>
         </div>
-            <form id="inputForm">
-            <input type="text" id="titleForm" placeholder="Title">
-            <textarea id="descriptionForm" placeholder="Description"></textarea>
-            <input type="date" name="dueDate" id="dueDate">
-            <label for="dueDate">Date due (optional)</label>
-            <input type="checkbox" name="priority" id="priority">
-            <label for="priority">Priority?</label>
-            <button type="button" id="addBtn">Add</button>
-        </form>
+
     </body>
     
 </html>

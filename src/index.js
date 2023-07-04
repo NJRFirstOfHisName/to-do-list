@@ -50,9 +50,9 @@ newProjectBtn.addEventListener('click', () => {
 //Creates a new, uncompleted task when 'Add' button is pressed IF title is present
 const addBtn = document.getElementById('addBtn');
 addBtn.addEventListener('click', () => {
-    if(document.getElementById('titleForm').value) {
+    if(document.getElementById('titleInput').value) {
         const newListItem = new ListItem(
-            document.getElementById('titleForm').value,
+            document.getElementById('titleInput').value,
             document.getElementById('descriptionForm').value,
             document.getElementById('dueDate').value,
             document.getElementById('priority').checked,

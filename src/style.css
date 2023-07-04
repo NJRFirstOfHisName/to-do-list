@@ -1,24 +1,122 @@
+html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
-    background-color: rgb(247, 236, 221);
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100%;
+}
+
+#sidebar {
+    background-color: #fde047;
+    display: grid;
+    grid-template-rows: .5fr 1fr 3fr;
+    align-items: baseline;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+#projectForm {
+    display: grid;
+    gap: 5px;
+    margin: 5px;
+}
+
+#projectsLabel {
+    font-size: large;
+    font-weight: bold;
+    margin: 0 1.5em;
+}
+
+#projects {
+    border: none;
+    font-size: large;
+    width: 70%;
+    justify-self: end;
+    margin: 0 1.5em;
+}
+
+button {
+    background-color: white;
+    border: none;
+    width: 40%;
+    justify-self: center;
+    height: 2em;
+    border-radius: 20px;
+    font-size: larger;
+    font-weight: 600;
+}
+
+#newProject {
+    width: 60%;
+    align-self: center;
+    margin: 2%;
 }
 
 #inputForm {
     display: grid;
-    grid-template-columns: 1fr 1fr .2fr .8fr .5fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    margin: 5px;
 }
 
-#titleForm {
-    grid-column: 1 / span 5;
+#titleInput {
+    grid-column: 1 / 4;
 }
 
 #descriptionForm {
-    grid-column: 1 / span 5;
+    grid-column: 1 / 5;
+    resize: none;
+}
+
+#dueDate {
+    grid-column: 1 / 3;
+}
+
+#titleInput, #descriptionForm, #dueDate {
+    border: none;
+    border-radius: 5px;
+}
+
+#dueDateLabel {
+    grid-column: 3 / 5;
+}
+
+#priorityDiv {
+    grid-column: 1 / 5;
+}
+
+#priority {
+    position: relative;
+    vertical-align: middle;
+}
+
+#dueDateLabel, #priorityLabel {
+    font-size: small;
+}
+
+#addBtn {
+    grid-column: 2 / 4;
+    width: 80%;
+    margin: 5%;
+}
+
+#container {
+    width: 100%;
+    background-color: #fefce8;
 }
 
 #container div{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px
+    gap: 20px;
+    background-color: white;
+    padding: 10px;
 }
 
 #container div div{
@@ -27,11 +125,11 @@ body {
         "check title title dueDate"
         "description description description description"
         ". . . delete";
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 5px;
     padding: 10px;
     gap: 0;
-    background-color: rgb(224, 240, 242);
+    background-color: #fef08a;
 }
 
 .entry {
@@ -47,6 +145,7 @@ body {
     grid-area: title;
     align-self: center;
     justify-self: start;
+    font-size: larger;
 }
 
 .dueDate {
@@ -59,11 +158,16 @@ body {
 
 .delete {
     grid-area: delete;
-    background-color: aqua;
-    border-color: aquamarine;
-    border-radius: 5px;
+    width: 20%;
+    /* filter: invert(30%) sepia(83%) saturate(570%) hue-rotate(354deg) brightness(89%) contrast(92%); */
+    align-self: end;
+    justify-self: end;
 }
 
 .priority {
     color: red;
+}
+
+#inputform {
+    margin: 50px;
 }

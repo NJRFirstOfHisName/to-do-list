@@ -1,3 +1,6 @@
+import deleteIcon from './trash-can-outline.svg';
+
+
 export default function printListItem(ListItem) {
 
     //Encloses all tasks in a div with a unique id and shared class
@@ -34,8 +37,10 @@ export default function printListItem(ListItem) {
     newEntry.appendChild(dueDate);
 
     //Add button to delete task
-    const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = "Delete";
+    // const deleteBtn = document.createElement('button');
+    const deleteBtn = document.createElement('img');
+    deleteBtn.src = deleteIcon;
+    // deleteBtn.innerHTML = "Delete";
     deleteBtn.className = "delete";
     newEntry.appendChild(deleteBtn);
 
