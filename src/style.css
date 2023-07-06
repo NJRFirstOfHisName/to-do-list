@@ -47,7 +47,6 @@ body {
 button {
     background-color: white;
     border: none;
-    width: 40%;
     justify-self: center;
     height: 2em;
     border-radius: 20px;
@@ -93,7 +92,8 @@ input, textarea {
 
 #inputFormButton {
     align-self: end;
-    margin: 5px
+    margin: 5px;
+    width: 45%;
 }
 
 #inputWrapper {
