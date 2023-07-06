@@ -63,17 +63,21 @@ button {
 
 #projectWrapper {
     overflow: hidden;
+    margin: 10px;
 }
 
 #projectAdd {
     margin-top: -30%; 
-    transition: all 1s;
+    transition: all .5s;
     align-items: center;
     display: grid;
     gap: 10px;
     justify-content: center;
 }
 
+#newProject {
+    font-size: medium;
+}
 
 input, textarea {
     border: none;
@@ -135,8 +139,9 @@ input, textarea {
 
 #addBtn {
     grid-column: 2 / 4;
-    width: 80%;
+    width: 50%;
     margin: 5%;
+    font-size: medium;
 }
 
 #container {
