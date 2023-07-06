@@ -1,6 +1,5 @@
 import deleteIcon from './trash-can-outline.svg';
 
-
 export default function printListItem(ListItem) {
 
     //Encloses all tasks in a div with a unique id and shared class

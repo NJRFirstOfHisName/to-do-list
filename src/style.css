@@ -71,12 +71,19 @@ button {
     transition: all .5s;
     align-items: center;
     display: grid;
-    gap: 10px;
     justify-content: center;
+    grid-template-rows: auto;
 }
 
 #newProject {
     font-size: medium;
+    margin: 10px;
+}
+
+#projectAdd p {
+    text-align: center;
+    font-size: small;
+    margin: 0;
 }
 
 input, textarea {
@@ -140,7 +147,6 @@ input, textarea {
 #addBtn {
     grid-column: 2 / 4;
     width: 50%;
-    margin: 5%;
     font-size: medium;
 }
 

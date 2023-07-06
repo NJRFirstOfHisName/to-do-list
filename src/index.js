@@ -1,13 +1,11 @@
 import './style.css';
-import printListItem from "./printListItem";
 import ListItem from "./addListItem";
+import printListItem from "./printListItem";
 import addProject from './addProject';
-import { doc } from 'prettier';
+import checkProjects from './checkProjects';
+import printProject from './printProject';
 
 // Dom elements used for and in event listeners
-const container = document.getElementById('container');
-const tdList = document.getElementById('tdList');
-const completedList = document.getElementById('completedList');
 const project = document.getElementById('projects');
 
 //Hard-coded entries to simplify testing, will be deleted once project is finished
@@ -25,21 +23,11 @@ const project = document.getElementById('projects');
     let fullList = [defaultList, testList, defaultCompleted, testCompleted, defaultList2, defaultList3, defaultList4];
 
 //Prints contents of default project on page load
-fullList.forEach(ListItem => {
-    if(ListItem.getProject === project.value){
-        printListItem(ListItem);
-    }
-})
+printProject(fullList, project.value);
 
 //Prints contents of selected project when selection is changed
 project.addEventListener('change', () => {
-    tdList.innerHTML = "";
-    completedList.innerHTML = "";
-    fullList.forEach(ListItem => {
-        if(ListItem.getProject === project.value){
-            printListItem(ListItem);
-        }
-    })
+    printProject(fullList, project.value);
 })
 
 document.getElementById('projectFormButton').addEventListener('click', () => {
@@ -50,7 +38,10 @@ document.getElementById('projectFormButton').addEventListener('click', () => {
 
 //Creates new project when 'New Project' button is pressed
 document.getElementById('newProject').addEventListener('click', () => {
-    addProject(project);
+    let projectInput = document.getElementById('projectInput');
+    let valid = checkProjects(projectInput, project);
+    addProject(valid, projectInput);
+    printProject(fullList, project.value);
 })
 
 //Creates a new, uncompleted task when 'Add' button is pressed IF title is present
@@ -68,6 +59,7 @@ document.getElementById('addBtn').addEventListener('click', () => {
 })
 
 //Listens for any clicks within the tasks container.
+const container = document.getElementById('container');
 container.addEventListener('click', (element) => {
     const parent = element.target.parentNode;
     //If delete button is clicked, deletes task.
