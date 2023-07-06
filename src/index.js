@@ -10,9 +10,9 @@ const project = document.getElementById('projects');
 
 //Hard-coded entries to simplify testing, will be deleted once project is finished
     const defaultList = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
-    const defaultList2 = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
-    const defaultList3 = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
-    const defaultList4 = new ListItem("Default Item","This is a default item for defaulting","07-02-2023",false, "defaultProject");
+    const defaultList2 = new ListItem("Also default Item","This is a default item for defaulting, but with a slightly longer string to test wrapping","07-02-2023",false, "defaultProject");
+    const defaultList3 = new ListItem("Lots of default Item(s)","This is a default item for defaulting, but with an exceptionally long string so that I can test text wrapping and potentially concatenating, which I'm not entirely sure how to implement yet but which I will also have to figure out at some point.","07-02-2023",false, "defaultProject");
+    const defaultList4 = new ListItem("Getting sick of these default Items","As it turns out that string wasn't quite as exceptionally long as I had hoped, but I think I'm just going to limit the number of characters in the description and call it a day.","07-02-2023",false, "defaultProject");
     const defaultCompleted = new ListItem("Default completed Item","This is a completed default item for completed defaulting","01-012-2001",true, "defaultProject");
     const testList = new ListItem("Test Item","This is a test item for testing","09-11-2050", false, "testProject");
     const testCompleted = new ListItem("Test completed Item","This is a completed test item for completed testing","11-11-1111", true, "testProject")
@@ -30,6 +30,7 @@ project.addEventListener('change', () => {
     printProject(fullList, project.value);
 })
 
+//Expands or collapses the form for adding a project when button is pressed
 document.getElementById('projectFormButton').addEventListener('click', () => {
     const projectAdd = document.getElementById('projectAdd');
     projectAdd.classList.toggle('expanded');
@@ -73,6 +74,18 @@ container.addEventListener('click', (element) => {
         fullList[toggleIndex].completed = !fullList[toggleIndex].getCompleted;
         printListItem(fullList[toggleIndex])
         parent.remove();
+    }
+    //If 'Completed' header is clicked, expands the list of completed tasks
+    if(element.target.id === "expandCompleted"){
+        //Ridiculous chained DOM list points to the completedList div to check if it's collapsed
+        if(element.target.nextElementSibling.firstElementChild.classList.contains('collapsed')) {
+            element.target.innerHTML = "Completed ▿"
+        } else {
+            element.target.innerHTML = "Completed ▸"
+        }
+        const completedList = document.getElementById('completedList');
+        completedList.classList.toggle('expanded');
+        completedList.classList.toggle('collapsed');
     }
 })
 
