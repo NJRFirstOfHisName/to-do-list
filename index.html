@@ -19,7 +19,7 @@
             <button type="button" id="projectFormButton">New Project</button>
             <div id="projectWrapper">
                 <form id="projectAdd">
-                    <input type="text" id="projectInput" placeholder="Project name">
+                    <input type="text" id="projectInput" maxlength="15" placeholder="Project name">
                     <p id="projectError" class="priority"></p>
                     <button type="button" id="newProject">Create</button>
                 </form>
@@ -27,8 +27,8 @@
             <button type="button" id="inputFormButton">New Task</button>
             <div id="inputWrapper" class="open">
                 <form id="inputForm">
-                    <input type="text" id="titleInput" placeholder="Title">
-                    <textarea id="descriptionForm" placeholder="Description" rows="5"></textarea>
+                    <input type="text" id="titleInput" maxlength="20" placeholder="Title">
+                    <textarea id="descriptionForm" maxlength="250" placeholder="Description (max 250 characters)" rows="5"></textarea>
                     <input type="date" name="dueDate" id="dueDate">
                     <label for="dueDate" id="dueDateLabel">Date due (optional)</label>
                     <div id="priorityDiv">
@@ -39,13 +39,14 @@
                 </form>
             </div>
         </div id="sidebar">
-
         <div id="container">
             <h4>Tasks</h4>
             <div id="tdList">
             </div>
-            <h4>Completed</h4>
-            <div id="completedList">
+            <h4 id="expandCompleted">Completed ▸</h4>
+            <div id="completedWrapper">
+                <div id="completedList" class="collapsed">
+                </div>
             </div>
         </div>
 
