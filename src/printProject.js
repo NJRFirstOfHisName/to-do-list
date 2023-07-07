@@ -7,9 +7,18 @@ const completedList = document.getElementById('completedList');
 export default function printProject(fullList, value) {
     tdList.innerHTML = "";
     completedList.innerHTML = "";
-    fullList.forEach(ListItem => {
-        if(ListItem.getProject === value){
-            printListItem(ListItem);
+    // fullList.forEach(ListItem => {
+    //     if(ListItem.getProject === value){
+    //         printListItem(ListItem);
+    //         console.log("ListItem")
+    //         console.log(ListItem);
+    //     }
+    // })
+    console.log(value)
+    Object.entries(window.localStorage).forEach(([key,val]) => {
+        if(JSON.parse(val)._project === value){
+            console.log(JSON.parse(val))
+            printListItem(JSON.parse(val));
         }
-    })
+    });
 }

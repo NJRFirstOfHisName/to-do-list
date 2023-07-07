@@ -22,6 +22,12 @@ const project = document.getElementById('projects');
 
     let fullList = [defaultList, testList, defaultCompleted, testCompleted, defaultList2, defaultList3, defaultList4];
 
+    localStorage.clear()
+    fullList.forEach((ListItem) => {
+        localStorage.setItem(ListItem.getTaskID, JSON.stringify(ListItem));
+    })
+
+    // Object.entries(window.localStorage).forEach(())
 //Prints contents of default project on page load
 printProject(fullList, project.value);
 
@@ -56,6 +62,10 @@ document.getElementById('addBtn').addEventListener('click', () => {
             project.value);
         printListItem(newListItem);
         fullList.push(newListItem);
+        localStorage.setItem(newListItem.getTaskID, JSON.stringify(newListItem));
+        console.log(JSON.parse(localStorage.getItem(newListItem.getTaskID)));
+        console.log(localStorage.length)
+        console.log(newListItem.getTaskID);
     }
 })
 
