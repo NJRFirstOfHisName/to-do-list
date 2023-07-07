@@ -6,7 +6,7 @@ html {
 body {
     margin: 0;
     display: grid;
-    grid-template-columns: minmax(10em, 1fr) 4fr;
+    grid-template-columns: minmax(10em, 20em) auto;
     height: 100%;
 }
 
@@ -102,9 +102,9 @@ input, textarea {
 
 #inputForm {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 5px;
-    margin: 50px;
+    margin: 10px;
     margin-top: -100%;
     transition: all 1s;
 }
@@ -218,5 +218,5 @@ input, textarea {
 
 #completedList {
     margin-top: -100%;
-    transition: all 1s;
+    transition: all .3s ease-out;
 }

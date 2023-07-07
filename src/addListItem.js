@@ -57,5 +57,3 @@ export default class ListItem {
     //     }
     // }
 }
-
-// export default { ListItem }
