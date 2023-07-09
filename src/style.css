@@ -1,222 +1,226 @@
 html {
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    margin: 0;
-    display: grid;
-    grid-template-columns: minmax(10em, 20em) auto;
-    height: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(10em, 20em) auto;
+  height: 100%;
 }
 
 #sidebar {
-    background-color: #fde047;
-    display: grid;
-    grid-template-rows: .5fr .4fr .25fr .4fr 1fr 3fr;
-    align-items: baseline;
+  background-color: #fde047;
+  display: grid;
+  grid-template-rows: 0.5fr 0.4fr 0.25fr 0.4fr 1fr 3fr;
+  align-items: baseline;
 }
 
 #header {
-    margin: 0 5%;
-    font-weight: bold;
-    font-size: 50px;
-    justify-self: start;
+  margin: 0 5%;
+  font-weight: bold;
+  font-size: 50px;
+  justify-self: start;
 }
 
 #projectForm {
-    display: grid;
-    gap: 5px;
-    margin: 5px;
+  display: grid;
+  gap: 5px;
+  margin: 5px;
 }
 
 #projectsLabel {
-    font-size: large;
-    font-weight: bold;
-    margin: 0 1.5em;
+  font-size: large;
+  font-weight: bold;
+  margin: 0 1.5em;
 }
 
 #projects {
-    border: none;
-    font-size: large;
-    width: 70%;
-    justify-self: end;
-    margin: 0 1.5em;
+  border: none;
+  font-size: large;
+  width: 70%;
+  justify-self: end;
+  margin: 0 1.5em;
 }
 
 button {
-    background-color: white;
-    border: none;
-    justify-self: center;
-    height: 2em;
-    border-radius: 20px;
-    font-size: larger;
-    font-weight: 600;
+  background-color: white;
+  border: none;
+  justify-self: center;
+  height: 2em;
+  border-radius: 20px;
+  font-size: larger;
+  font-weight: 600;
 }
 
 #projectFormButton {
-    width: 55%;
-    align-self: baseline;
-    margin: 2%;
+  width: 55%;
+  align-self: baseline;
+  margin: 2%;
 }
 
 #projectWrapper {
-    overflow: hidden;
-    margin: 10px;
+  overflow: hidden;
+  margin: 10px;
 }
 
 #projectAdd {
-    margin-top: -30%; 
-    transition: all .5s;
-    align-items: center;
-    display: grid;
-    justify-content: center;
-    grid-template-rows: auto;
+  margin-top: -30%;
+  transition: all 0.5s;
+  align-items: center;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: auto;
 }
 
 #newProject {
-    font-size: medium;
-    margin: 10px;
+  font-size: medium;
+  margin: 10px;
 }
 
 #projectAdd p {
-    text-align: center;
-    font-size: small;
-    margin: 0;
+  text-align: center;
+  font-size: small;
+  margin: 0;
 }
 
-input, textarea {
-    border: none;
-    border-radius: 5px;
-} 
+input,
+textarea {
+  border: none;
+  border-radius: 5px;
+}
 
 #inputFormButton {
-    align-self: end;
-    margin: 5px;
-    width: 45%;
+  align-self: end;
+  margin: 5px;
+  width: 45%;
 }
 
 #inputWrapper {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #inputForm {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-    margin: 10px;
-    margin-top: -100%;
-    transition: all 1s;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin: 10px;
+  margin-top: -100%;
+  transition: all 1s;
 }
 
-#inputForm.expanded, #projectAdd.expanded, #completedList.expanded {
-    margin-top: 0;
+#inputForm.expanded,
+#projectAdd.expanded,
+#completedList.expanded {
+  margin-top: 0;
 }
 
 #titleInput {
-    grid-column: 1 / 4;
+  grid-column: 1 / 4;
 }
 
 #descriptionForm {
-    grid-column: 1 / 5;
-    resize: none;
+  grid-column: 1 / 5;
+  resize: none;
 }
 
 #dueDate {
-    grid-column: 1 / 3;
+  grid-column: 1 / 3;
 }
 
-
 #dueDateLabel {
-    grid-column: 3 / 5;
+  grid-column: 3 / 5;
 }
 
 #priorityDiv {
-    grid-column: 1 / 5;
+  grid-column: 1 / 5;
 }
 
 #priority {
-    position: relative;
-    vertical-align: middle;
+  position: relative;
+  vertical-align: middle;
 }
 
-#dueDateLabel, #priorityLabel {
-    font-size: small;
+#dueDateLabel,
+#priorityLabel {
+  font-size: small;
 }
 
 #addBtn {
-    grid-column: 2 / 4;
-    width: 50%;
-    font-size: medium;
+  grid-column: 2 / 4;
+  width: 50%;
+  font-size: medium;
 }
 
 #container {
-    width: 100%;
-    background-color: #fefce8;
+  width: 100%;
+  background-color: #fefce8;
 }
 
-#tdList, #completedList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 20px;
-    background-color: white;
-    padding: 10px;
-}
-
-.entry{
-    display: grid;
-    grid-template-columns: .25fr 1fr 1fr 1fr;
-    grid-template-areas: 
-        "check title title dueDate"
-        "description description description description"
-        ". . . delete";
-    border-radius: 10px;
-    margin: 5px;
-    padding: 10px;
-    gap: 0;
-    background-color: #fef08a;
+#tdList,
+#completedList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 20px;
+  background-color: white;
+  padding: 10px;
 }
 
 .entry {
-    border: 1px solid black
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "check title title dueDate"
+    "description description description description"
+    ". . . delete";
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  gap: 0;
+  background-color: #fef08a;
+}
+
+.entry {
+  border: 1px solid black;
 }
 
 .check {
-    grid-area: check;
-    width: 15px;
+  grid-area: check;
+  width: 15px;
 }
 
 .title {
-    grid-area: title;
-    align-self: center;
-    justify-self: start;
-    font-size: larger;
+  grid-area: title;
+  align-self: center;
+  justify-self: start;
+  font-size: larger;
 }
 
 .dueDate {
-    grid-area: dueDate;
+  grid-area: dueDate;
 }
 
 .description {
-    grid-area: description;
+  grid-area: description;
 }
 
 .delete {
-    grid-area: delete;
-    width: 20%;
-    align-self: end;
-    justify-self: end;
+  grid-area: delete;
+  width: 20%;
+  align-self: end;
+  justify-self: end;
 }
 
 .priority {
-    color: red;
+  color: red;
 }
 
 #completedWrapper {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #completedList {
-    margin-top: -100%;
-    transition: all .3s ease-out;
+  margin-top: -100%;
+  transition: all 0.3s ease-out;
 }

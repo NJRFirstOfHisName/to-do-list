@@ -12,12 +12,12 @@ const stylesHandler = isProduction
 
 const config = {
   entry: {
-    index: './src/index.js',
-    addListItem: './src/addListItem.js',
-    printListItem: './src/printListItem.js',
-    addProject: './src/addProject.js',
-    checkProjects: './src/checkProjects.js',
-    printProject: './src/printProject.js'
+    index: "./src/index.js",
+    addListItem: "./src/addListItem.js",
+    printListItem: "./src/printListItem.js",
+    addProject: "./src/addProject.js",
+    checkProjects: "./src/checkProjects.js",
+    printProject: "./src/printProject.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -34,7 +34,7 @@ const config = {
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   module: {
     rules: [
       {

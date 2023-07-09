@@ -1,55 +1,72 @@
 <!DOCTYPE html>
-<html><head><script defer src="index.js"></script><script defer src="addListItem.js"></script><script defer src="printListItem.js"></script><script defer src="addProject.js"></script><script defer src="checkProjects.js"></script><script defer src="printProject.js"></script></head>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <title>To-Do List</title>
+<html>
+  <head>
+    <script defer="defer" src="index.js"></script>
+    <script defer="defer" src="addListItem.js"></script>
+    <script defer="defer" src="printListItem.js"></script>
+    <script defer="defer" src="addProject.js"></script>
+    <script defer="defer" src="checkProjects.js"></script>
+    <script defer="defer" src="printProject.js"></script>
+    <link href="index.css" rel="stylesheet" /></head
+  ><head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>To-Do List</title>
     <body>
-        <div id="sidebar">
-            <h1 id="header">To-do</h1>
-            <form id="projectForm">
-                <label for="projects" id="projectsLabel">Choose your project:</label>
-                <select name="projects" id="projects">
-                    <option value="defaultProject">default</option>
-                    <option value="testProject">Test</option>
-                </select>
-            </form>
-            <button type="button" id="projectFormButton">New Project</button>
-            <div id="projectWrapper">
-                <form id="projectAdd">
-                    <input type="text" id="projectInput" maxlength="15" placeholder="Project name">
-                    <p id="projectError" class="priority"></p>
-                    <button type="button" id="newProject">Create</button>
-                </form>
-            </div>
-            <button type="button" id="inputFormButton">New Task</button>
-            <div id="inputWrapper" class="open">
-                <form id="inputForm">
-                    <input type="text" id="titleInput" maxlength="20" placeholder="Title">
-                    <textarea id="descriptionForm" maxlength="250" placeholder="Description (max 250 characters)" rows="5"></textarea>
-                    <input type="date" name="dueDate" id="dueDate">
-                    <label for="dueDate" id="dueDateLabel">Date due (optional)</label>
-                    <div id="priorityDiv">
-                        <input type="checkbox" name="priority" id="priority">
-                        <label for="priority" id="priorityLabel">Priority?</label>
-                    </div>
-                    <button type="button" id="addBtn">Add</button>
-                </form>
-            </div>
-        </div id="sidebar">
-        <div id="container">
-            <h4>Tasks</h4>
-            <div id="tdList">
-            </div>
-            <h4 id="expandCompleted">Completed ▸</h4>
-            <div id="completedWrapper">
-                <div id="completedList" class="collapsed">
-                </div>
-            </div>
+      <div id="sidebar">
+        <h1 id="header">To-do</h1>
+        <form id="projectForm">
+          <label for="projects" id="projectsLabel">Choose your project:</label>
+          <select name="projects" id="projects">
+            <option value="defaultProject">default</option>
+            <option value="testProject">Test</option>
+          </select>
+        </form>
+        <button type="button" id="projectFormButton">New Project</button>
+        <div id="projectWrapper">
+          <form id="projectAdd">
+            <input
+              id="projectInput"
+              maxlength="15"
+              placeholder="Project name"
+            />
+            <p id="projectError" class="priority"></p>
+            <button type="button" id="newProject">Create</button>
+          </form>
         </div>
-
+        <button type="button" id="inputFormButton">New Task</button>
+        <div id="inputWrapper" class="open">
+          <form id="inputForm">
+            <input id="titleInput" maxlength="20" placeholder="Title" />
+            <textarea
+              id="descriptionForm"
+              maxlength="250"
+              placeholder="Description (max 250 characters)"
+              rows="5"
+            ></textarea>
+            <input type="date" name="dueDate" id="dueDate" />
+            <label for="dueDate" id="dueDateLabel">Date due (optional)</label>
+            <div id="priorityDiv">
+              <input type="checkbox" name="priority" id="priority" />
+              <label for="priority" id="priorityLabel">Priority?</label>
+            </div>
+            <button type="button" id="addBtn">Add</button>
+          </form>
+        </div>
+      </div>
+      <div id="container">
+        <h4>Tasks</h4>
+        <div id="tdList"></div>
+        <h4 id="expandCompleted">Completed ▸</h4>
+        <div id="completedWrapper">
+          <div id="completedList" class="collapsed"></div>
+        </div>
+      </div>
     </body>
-    
+  </head>
 </html>
