@@ -18,7 +18,7 @@ export default function printListItem(ListItem) {
     const newLabel = document.createElement('label');
     newLabel.innerHTML = ListItem._title;
     newLabel.className = "title";
-    if(ListItem._Priority){
+    if(ListItem._priority){
         newLabel.className += " priority";
     }
     newEntry.appendChild(newLabel);
@@ -44,7 +44,7 @@ export default function printListItem(ListItem) {
     newEntry.appendChild(deleteBtn);
 
     //Adds task to appropriate div depending on whether it's marked complete
-    if(!ListItem._Completed){
+    if(!ListItem._completed){
         newLabel.style.setProperty("text-decoration", "");
         tdList.appendChild(newEntry);
     } else {

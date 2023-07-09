@@ -14,10 +14,8 @@ export default function printProject(fullList, value) {
     //         console.log(ListItem);
     //     }
     // })
-    console.log(value)
     Object.entries(window.localStorage).forEach(([key,val]) => {
         if(JSON.parse(val)._project === value){
-            console.log(JSON.parse(val))
             printListItem(JSON.parse(val));
         }
     });

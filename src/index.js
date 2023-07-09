@@ -21,6 +21,7 @@ const project = document.getElementById('projects');
     testCompleted.completed = true;
 
     let fullList = [defaultList, testList, defaultCompleted, testCompleted, defaultList2, defaultList3, defaultList4];
+    console.log(fullList)
 
     localStorage.clear()
     fullList.forEach((ListItem) => {
