@@ -73,7 +73,7 @@ container.addEventListener("click", (element) => {
   const parent = element.target.parentNode;
   // If delete button is clicked, deletes task.
   if (element.target.classList.contains("delete")) {
-    fullList = fullList.filter((task) => task.getTaskID != parent.id);
+    fullList = fullList.filter((task) => task.getTaskID !== parent.id);
     parent.remove();
   }
   // If checkbox is clicked, toggles 'completed' and moves task from 'tasks' to 'completed' or vice-versa
@@ -85,15 +85,16 @@ container.addEventListener("click", (element) => {
   }
   // If 'Completed' header is clicked, expands the list of completed tasks
   if (element.target.id === "expandCompleted") {
+    const completed = element.target;
     // Ridiculous chained DOM list points to the completedList div to check if it's collapsed
     if (
       element.target.nextElementSibling.firstElementChild.classList.contains(
         "collapsed"
       )
     ) {
-      element.target.innerText = "Completed ▿";
+      completed.target.innerText = "Completed ▿";
     } else {
-      element.target.innerText = "Completed ▶";
+      completed.target.innerText = "Completed ▶";
     }
     const completedList = document.getElementById("completedList");
     completedList.classList.toggle("expanded");

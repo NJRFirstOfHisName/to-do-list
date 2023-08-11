@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 export default class ListItem {
-  constructor(title, description = " ", dueDate, priority, project) {
+  constructor(title, description, dueDate, priority, project) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
