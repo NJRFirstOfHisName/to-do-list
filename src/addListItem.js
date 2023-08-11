@@ -7,7 +7,7 @@ export default class ListItem {
     this.priority = priority;
     this.project = project;
     this.completed = false;
-    this.taskID = `id${  Math.random().toString(16).slice(2)}`;
+    this.taskID = `id${Math.random().toString(16).slice(2)}`;
   }
 
   get getTitle() {
