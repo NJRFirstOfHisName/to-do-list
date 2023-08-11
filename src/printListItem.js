@@ -50,7 +50,6 @@ export default function printListItem(ListItem) {
   } else {
     newLabel.style.setProperty("text-decoration", "line-through");
     const completedList = document.getElementById("completedList");
-
     completedList.appendChild(newEntry);
   }
 }

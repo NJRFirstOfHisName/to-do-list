@@ -1,13 +1,13 @@
 html {
-  height: 100%;
   font-family: "Roboto", sans-serif;
 }
 
 body {
   margin: 0;
   display: grid;
-  grid-template-columns: minmax(10em, 20em) auto;
-  height: 100%;
+  grid-template-columns: minmax(250px, 20vw) auto;
+  height: 100vh;
+  width: 100vw;
 }
 
 #sidebar {
@@ -15,6 +15,8 @@ body {
   display: grid;
   grid-template-rows: 0.5fr 0.4fr 0.25fr 0.4fr 1fr 3fr;
   align-items: baseline;
+  overflow: hidden;
+  position: relative;
 }
 
 #header {
@@ -154,7 +156,6 @@ textarea {
 }
 
 #container {
-  width: 100%;
   background-color: #fefce8;
 }
 
@@ -223,4 +224,17 @@ textarea {
 #completedList {
   margin-top: -100%;
   transition: all 0.3s ease-out;
+}
+
+@media (max-width: 500px) {
+  body {
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  #sidebar.expanded {
+    margin-left: 0;
+  }
 }

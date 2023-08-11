@@ -88,13 +88,13 @@ container.addEventListener("click", (element) => {
     const completed = element.target;
     // Ridiculous chained DOM list points to the completedList div to check if it's collapsed
     if (
-      element.target.nextElementSibling.firstElementChild.classList.contains(
+      completed.nextElementSibling.firstElementChild.classList.contains(
         "collapsed"
       )
     ) {
-      completed.target.innerText = "Completed ▿";
+      completed.innerText = "Completed ▿";
     } else {
-      completed.target.innerText = "Completed ▶";
+      completed.innerText = "Completed ▶";
     }
     const completedList = document.getElementById("completedList");
     completedList.classList.toggle("expanded");
