@@ -7,16 +7,14 @@ const completedList = document.getElementById("completedList");
 export default function printProject(fullList, value) {
   tdList.innerHTML = "";
   completedList.innerHTML = "";
-  // fullList.forEach(ListItem => {
-  //     if(ListItem.getProject === value){
-  //         printListItem(ListItem);
-  //         console.log("ListItem")
-  //         console.log(ListItem);
-  //     }
-  // })
-  Object.entries(window.localStorage).forEach(([key, val]) => {
-    if (JSON.parse(val).getProject === value) {
-      printListItem(JSON.parse(val));
+  fullList.forEach((ListItem) => {
+    if (ListItem.getProject === value) {
+      printListItem(ListItem);
     }
   });
+  // Object.entries(window.localStorage).forEach(([key, val]) => {
+  //   if (JSON.parse(val).getProject === value) {
+  //     printListItem(JSON.parse(val));
+  //   }
+  // });
 }

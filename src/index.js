@@ -10,12 +10,10 @@ const project = document.getElementById("projects");
 
 let fullList = [];
 
-localStorage.clear();
 fullList.forEach((LI) => {
   localStorage.setItem(LI.getTaskID, JSON.stringify(LI));
 });
 
-// Object.entries(window.localStorage).forEach(())
 // Prints contents of default project on page load
 printProject(fullList, project.value);
 
@@ -36,22 +34,36 @@ document.getElementById("newProject").addEventListener("click", () => {
   const projectInput = document.getElementById("projectInput");
   const valid = checkProjects(projectInput, project);
   addProject(valid, projectInput);
+  if (valid) projectInput.value = "";
   printProject(fullList, project.value);
 });
 
 // Creates a new, uncompleted task when 'Add' button is pressed IF title is present
 document.getElementById("addBtn").addEventListener("click", () => {
-  if (document.getElementById("titleInput").value) {
+  const title = document.getElementById("titleInput");
+  const description = document.getElementById("descriptionForm");
+  const dueDate = document.getElementById("dueDate");
+  const priority = document.getElementById("priority");
+
+  if (title.value.trim()) {
     const newListItem = new ListItem(
-      document.getElementById("titleInput").value,
-      document.getElementById("descriptionForm").value,
-      document.getElementById("dueDate").value,
-      document.getElementById("priority").checked,
+      title.value,
+      description.value,
+      dueDate.value,
+      priority.checked,
       project.value
     );
     printListItem(newListItem);
     fullList.push(newListItem);
-    localStorage.setItem(newListItem.getTaskID, JSON.stringify(newListItem));
+
+    title.value = "";
+    description.value = "";
+    dueDate.value = "";
+    priority.checked = false;
+    document.getElementById("inputForm").classList.toggle("expanded");
+    // localStorage.setItem(newListItem.getTaskID, JSON.stringify(newListItem));
+  } else {
+    title.value = "";
   }
 });
 
@@ -79,9 +91,9 @@ container.addEventListener("click", (element) => {
         "collapsed"
       )
     ) {
-      element.target.innerHTML = "Completed ▿";
+      element.target.innerText = "Completed ▿";
     } else {
-      element.target.innerHTML = "Completed ▸";
+      element.target.innerText = "Completed ▶";
     }
     const completedList = document.getElementById("completedList");
     completedList.classList.toggle("expanded");
@@ -93,5 +105,4 @@ container.addEventListener("click", (element) => {
 document.getElementById("inputFormButton").addEventListener("click", () => {
   const inputForm = document.getElementById("inputForm");
   inputForm.classList.toggle("expanded");
-  inputForm.classList.toggle("collapsed");
 });
