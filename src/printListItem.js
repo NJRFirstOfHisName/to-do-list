@@ -23,23 +23,27 @@ export default function printListItem(ListItem) {
   }
   newEntry.appendChild(newLabel);
 
-  // Add description. If no description is supplied field will be blank
-  const descriptionText = document.createElement("p");
-  descriptionText.className = "description";
-  descriptionText.innerHTML = ListItem.getDescription;
-  newEntry.appendChild(descriptionText);
-
-  // Add due date. If no date is supplied field will be blank
-  const dueDateDOM = document.createElement("p");
-  const dueDate = parseISO(ListItem.getDueDate);
-  dueDateDOM.innerText = `Due ${formatDistance(dueDate, new Date(), {
-    addSuffix: true,
-  })}`;
-  if (new Date() > dueDate) {
-    dueDateDOM.style.color = "red";
+  // If a due date is applied, calculates how much time is remaining and adds it to DOM
+  if (ListItem.getDueDate) {
+    const dueDateDOM = document.createElement("p");
+    const dueDate = parseISO(ListItem.getDueDate);
+    dueDateDOM.innerText = `Due ${formatDistance(dueDate, new Date(), {
+      addSuffix: true,
+    })}`;
+    if (new Date() > dueDate) {
+      dueDateDOM.style.color = "red";
+    }
+    dueDateDOM.className = "dueDate";
+    newEntry.appendChild(dueDateDOM);
   }
-  dueDateDOM.className = "dueDate";
-  newEntry.appendChild(dueDateDOM);
+
+  // If description is supplied, adds it to DOM
+  if (ListItem.getDescription.trim()) {
+    const descriptionText = document.createElement("p");
+    descriptionText.className = "description";
+    descriptionText.innerHTML = ListItem.getDescription;
+    newEntry.appendChild(descriptionText);
+  }
 
   // Add button to delete task
   // const deleteBtn = document.createElement('button');
