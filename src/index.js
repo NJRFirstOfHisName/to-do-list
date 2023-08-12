@@ -56,13 +56,20 @@ document.getElementById("addBtn").addEventListener("click", () => {
     printListItem(newListItem);
     fullList.push(newListItem);
 
+    // Clears all inputs
     title.value = "";
     description.value = "";
     dueDate.value = "";
     priority.checked = false;
     document.getElementById("inputForm").classList.toggle("expanded");
+
+    const sidebar = document.getElementById("sidebar");
+    if (sidebar.classList.contains("expanded")) {
+      sidebar.classList.toggle("expanded");
+    }
     // localStorage.setItem(newListItem.getTaskID, JSON.stringify(newListItem));
   } else {
+    // If the title is whitespace, removes it and waits for a new title.
     title.value = "";
   }
 });
@@ -100,6 +107,12 @@ container.addEventListener("click", (element) => {
     completedList.classList.toggle("expanded");
     completedList.classList.toggle("collapsed");
   }
+});
+
+const mobileMenu = document.querySelector(".menu-button");
+mobileMenu.addEventListener("click", () => {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("expanded");
 });
 
 // Expands or collapses form for adding a new task when button is pressed
