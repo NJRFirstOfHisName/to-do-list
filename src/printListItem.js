@@ -1,3 +1,4 @@
+import { formatDistance, parseISO } from "date-fns";
 import deleteIcon from "./trash-can-outline.svg";
 
 export default function printListItem(ListItem) {
@@ -29,10 +30,16 @@ export default function printListItem(ListItem) {
   newEntry.appendChild(descriptionText);
 
   // Add due date. If no date is supplied field will be blank
-  const dueDate = document.createElement("p");
-  dueDate.innerHTML = ListItem.getDueDate;
-  dueDate.className = "dueDate";
-  newEntry.appendChild(dueDate);
+  const dueDateDOM = document.createElement("p");
+  const dueDate = parseISO(ListItem.getDueDate);
+  dueDateDOM.innerText = `Due ${formatDistance(dueDate, new Date(), {
+    addSuffix: true,
+  })}`;
+  if (new Date() > dueDate) {
+    dueDateDOM.style.color = "red";
+  }
+  dueDateDOM.className = "dueDate";
+  newEntry.appendChild(dueDateDOM);
 
   // Add button to delete task
   // const deleteBtn = document.createElement('button');
