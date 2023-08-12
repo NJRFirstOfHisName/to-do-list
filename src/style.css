@@ -234,7 +234,7 @@ h4 {
   transition: all 0.3s ease-out;
 }
 
-.mobile-view {
+.menu-button {
   display: none;
 }
 
@@ -259,9 +259,15 @@ h4 {
     margin-left: 0;
   }
 
+  h4 {
+    margin: 1em 1em;
+  }
+
   .menu-button {
-    position: absolute;
-    margin: 0.5em;
+    display: block;
+    position: fixed;
+    left: 1em;
+    bottom: 1em;
     background-color: #fde047;
     text-align: center;
     border-radius: 50%;
@@ -273,10 +279,5 @@ h4 {
 
   img {
     margin: 4px 0 0 0;
-  }
-
-  .mobile-view {
-    display: flex;
-    background-color: #fde047;
   }
 }
