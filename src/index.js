@@ -20,6 +20,12 @@ printProject(fullList, project.value);
 // Prints contents of selected project when selection is changed
 project.addEventListener("change", () => {
   printProject(fullList, project.value);
+
+  // Closes the menu if user is on a mobile screen
+  const sidebar = document.getElementById("sidebar");
+  if (sidebar.classList.contains("expanded")) {
+    sidebar.classList.toggle("expanded");
+  }
 });
 
 // Expands or collapses the form for adding a project when button is pressed
@@ -63,6 +69,7 @@ document.getElementById("addBtn").addEventListener("click", () => {
     priority.checked = false;
     document.getElementById("inputForm").classList.toggle("expanded");
 
+    // Closes the menu if user is on a mobile device
     const sidebar = document.getElementById("sidebar");
     if (sidebar.classList.contains("expanded")) {
       sidebar.classList.toggle("expanded");
@@ -88,7 +95,10 @@ container.addEventListener("click", (element) => {
     const toggleIndex = fullList.map((e) => e.getTaskID).indexOf(parent.id);
     fullList[toggleIndex].completed = !fullList[toggleIndex].getCompleted;
     printListItem(fullList[toggleIndex]);
-    parent.remove();
+    parent.classList.add("entry-remove");
+    parent.addEventListener("animationend", () => {
+      parent.remove();
+    });
   }
   // If 'Completed' header is clicked, expands the list of completed tasks
   if (element.target.id === "expandCompleted") {
