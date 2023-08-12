@@ -88,7 +88,10 @@ container.addEventListener("click", (element) => {
   // If delete button is clicked, deletes task.
   if (element.target.classList.contains("delete")) {
     fullList = fullList.filter((task) => task.getTaskID !== parent.id);
-    parent.remove();
+    parent.classList.add("entry-remove");
+    parent.addEventListener("animationend", () => {
+      parent.remove();
+    });
   }
   // If checkbox is clicked, toggles 'completed' and moves task from 'tasks' to 'completed' or vice-versa
   if (element.target.classList.contains("check")) {

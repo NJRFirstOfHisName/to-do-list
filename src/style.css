@@ -190,7 +190,7 @@ h4 {
 }
 
 .entry-remove {
-  animation: remove-task 0.2s;
+  animation: remove-task 0.15s;
 }
 
 @keyframes insert-task {
