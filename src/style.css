@@ -296,6 +296,11 @@ p {
 
   #container {
     width: 100vw;
+    height: 98%;
+  }
+
+  h2 {
+    margin: 0.5em 1em;
   }
 
   #sidebar {
